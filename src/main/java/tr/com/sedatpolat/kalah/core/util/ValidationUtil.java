@@ -12,6 +12,9 @@ import tr.com.sedatpolat.kalah.model.exception.InvalidOperationException;
  */
 public class ValidationUtil {
 
+	private ValidationUtil() {
+	}
+	
 	public static void validateStartIndex(KalahBoard kalah, int startedPitIndex) throws InvalidOperationException {
 
 		if (startedPitIndex >= Constants.NUMBER_OF_PITS)

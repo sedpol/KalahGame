@@ -10,5 +10,10 @@ import tr.com.sedatpolat.kalah.model.exception.InvalidOperationException;
  *
  */
 public interface KalahService {
-	public GameStatus sow(KalahBoard kalah, int startedPitIndex) throws InvalidOperationException;
+	public int sow(KalahBoard kalah, int startedPitIndex) throws InvalidOperationException;
+	public void pickUpFront(KalahBoard kalah, int startedPitIndex, int lastPitIndex);
+	public boolean isGameFinished(KalahBoard kalah);
+	public void sowRemainedStonesIntoKalah(KalahBoard kalah);
+	public GameStatus whoWon(KalahBoard kalah);	
+	public GameStatus whoseTurn(int startedPitIndex, int lastPitIndex);
 }

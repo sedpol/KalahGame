@@ -14,6 +14,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import tr.com.sedatpolat.kalah.AppConfig;
 import tr.com.sedatpolat.kalah.core.service.KalahService;
 import tr.com.sedatpolat.kalah.core.service.PlayerService;
+import tr.com.sedatpolat.kalah.core.util.ValidationUtil;
 import tr.com.sedatpolat.kalah.model.bean.KalahBoard;
 import tr.com.sedatpolat.kalah.model.bean.Player;
 import tr.com.sedatpolat.kalah.model.constant.GameStatus;
@@ -49,19 +50,31 @@ public class GameView implements Serializable {
 	
 	public void move(Integer index) {
 		try {
-			GameStatus status = kalahService.sow(kalah, index);
 			
-			disableSecondPlayer = status == GameStatus.PLAYER1_TURN;
-			disableFirstPlayer = status == GameStatus.PLAYER2_TURN;
+			ValidationUtil.validateStartIndex(kalah, index);
 			
-			if (isGameFinished(status)) {
+			int lastPitIndex = kalahService.sow(kalah, index);
+			
+			kalahService.pickUpFront(kalah, index, lastPitIndex);
+			
+			GameStatus status = null;
+			
+			if (kalahService.isGameFinished(kalah)) {
+				kalahService.sowRemainedStonesIntoKalah(kalah);
+				
+				status = kalahService.whoWon(kalah);
 				
 				disableFirstPlayer = disableSecondPlayer = true;
 				
 				playerService.increasePlayerScor(status, firstPlayer, secondPlayer);
 				
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, getStatusMessage(status), null));
+			} else {
+				status = kalahService.whoseTurn(index, lastPitIndex);
+				disableSecondPlayer = status == GameStatus.PLAYER1_TURN;
+				disableFirstPlayer = status == GameStatus.PLAYER2_TURN;
 			}
+			
 		} catch (InvalidOperationException ioe) { 
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, ioe.getErrorCode(), ioe.getMessage()));
 		} catch (Exception e) {
@@ -93,10 +106,6 @@ public class GameView implements Serializable {
 		kalah = new KalahBoard();
 		disableFirstPlayer = false;
 		disableSecondPlayer = true;
-	}
-	
-	private boolean isGameFinished (GameStatus status) {
-		return status == GameStatus.DEUCE ||status == GameStatus.PLAYER1_WIN || status == GameStatus.PLAYER2_WIN;
 	}
 
 	private String getStatusMessage(GameStatus status) {

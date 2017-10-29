@@ -3,6 +3,7 @@ C:\Users\sedpol\workspace\neonws\KalahGame\src\main\java\tr\com\sedatpolat\kalah
 C:\Users\sedpol\workspace\neonws\KalahGame\src\main\java\tr\com\sedatpolat\kalah\model\bean\Player.java
 C:\Users\sedpol\workspace\neonws\KalahGame\src\main\java\tr\com\sedatpolat\kalah\model\constant\ExceptionMessages.java
 C:\Users\sedpol\workspace\neonws\KalahGame\src\main\java\tr\com\sedatpolat\kalah\controller\GameView.java
+C:\Users\sedpol\workspace\neonws\KalahGame\src\main\java\tr\com\sedatpolat\kalah\core\service\util\GameUtil.java
 C:\Users\sedpol\workspace\neonws\KalahGame\src\main\java\tr\com\sedatpolat\kalah\core\service\PlayerService.java
 C:\Users\sedpol\workspace\neonws\KalahGame\src\main\java\tr\com\sedatpolat\kalah\model\bean\KalahBoard.java
 C:\Users\sedpol\workspace\neonws\KalahGame\src\main\java\tr\com\sedatpolat\kalah\core\util\ValidationUtil.java
