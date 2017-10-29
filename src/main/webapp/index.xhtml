@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>
+<h:body>
+
+	<h:form>
+		<!-- <p:messages id="messages" /> -->
+		<p:growl id="messages" showDetail="true" />
+
+		<br/>
+		<p:commandButton value="#{gameView.kalah.pits[6]}" disabled="true" style="width:55px;height:70px;"></p:commandButton>
+		<p:spacer style="width:10px;"></p:spacer>
+		<p:commandButton value="#{gameView.kalah.pits[5]}" disabled="#{gameView.disableFirstPlayer}" style="width:55px;" action="#{gameView.move(5)}" update="@form"></p:commandButton>
+		<p:commandButton value="#{gameView.kalah.pits[4]}" disabled="#{gameView.disableFirstPlayer}" style="width:55px;" action="#{gameView.move(4)}" update="@form"></p:commandButton>
+		<p:commandButton value="#{gameView.kalah.pits[3]}" disabled="#{gameView.disableFirstPlayer}" style="width:55px;" action="#{gameView.move(3)}" update="@form"></p:commandButton>
+		<p:commandButton value="#{gameView.kalah.pits[2]}" disabled="#{gameView.disableFirstPlayer}" style="width:55px;" action="#{gameView.move(2)}" update="@form"></p:commandButton>
+		<p:commandButton value="#{gameView.kalah.pits[1]}" disabled="#{gameView.disableFirstPlayer}" style="width:55px;" action="#{gameView.move(1)}" update="@form"></p:commandButton>
+		<p:commandButton value="#{gameView.kalah.pits[0]}" disabled="#{gameView.disableFirstPlayer}" style="width:55px;" action="#{gameView.move(0)}" update="@form" ></p:commandButton>
+		
+		<br />
+		<p:spacer style="width:67px;height:10px;"></p:spacer>
+		
+		<p:commandButton value="#{gameView.kalah.pits[7]}"  disabled="#{gameView.disableSecondPlayer}" style="width:55px;" action="#{gameView.move(7)}" update="@form"></p:commandButton>
+		<p:commandButton value="#{gameView.kalah.pits[8]}"  disabled="#{gameView.disableSecondPlayer}" style="width:55px;" action="#{gameView.move(8)}" update="@form"></p:commandButton>
+		<p:commandButton value="#{gameView.kalah.pits[9]}"  disabled="#{gameView.disableSecondPlayer}" style="width:55px;" action="#{gameView.move(9)}" update="@form"></p:commandButton>
+		<p:commandButton value="#{gameView.kalah.pits[10]}" disabled="#{gameView.disableSecondPlayer}" style="width:55px;" action="#{gameView.move(10)}" update="@form"></p:commandButton>
+		<p:commandButton value="#{gameView.kalah.pits[11]}" disabled="#{gameView.disableSecondPlayer}" style="width:55px;" action="#{gameView.move(11)}" update="@form"></p:commandButton>
+		<p:commandButton value="#{gameView.kalah.pits[12]}" disabled="#{gameView.disableSecondPlayer}" style="width:55px;" action="#{gameView.move(12)}" update="@form"></p:commandButton>
+		<p:spacer style="width:10px;"></p:spacer>
+		<p:commandButton value="#{gameView.kalah.pits[13]}" disabled="true" style="width:55px;height:70px; "></p:commandButton>
+		<br/>
+		<br/>
+		<br/>
+				
+		<p:commandButton value="New Game" style="width:200px;height:55px;" action="#{gameView.newGame()}" update="@form"></p:commandButton>
+		
+		<p:spacer style="width:50px;height:10px;"></p:spacer>
+		
+		<p:commandButton value="Start Game" style="width:200px;height:55px;" action="#{gameView.resetGame()}" update="@form"></p:commandButton>
+		<br/>
+		<br/>
+		<br/>
+		
+		<p:outputLabel value="#{gameView.firstPlayer.name }: #{gameView.firstPlayer.score}"></p:outputLabel>
+		<br/>
+		<p:outputLabel value="#{gameView.secondPlayer.name}: #{gameView.secondPlayer.score}"></p:outputLabel>
+	</h:form>
+
+</h:body>
+</html>

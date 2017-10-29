@@ -1,0 +1,11 @@
+tr\com\sedatpolat\kalah\core\util\ValidationUtil.class
+tr\com\sedatpolat\kalah\core\service\PlayerService.class
+tr\com\sedatpolat\kalah\model\bean\Player.class
+tr\com\sedatpolat\kalah\core\service\KalahService.class
+tr\com\sedatpolat\kalah\model\constant\Constants.class
+tr\com\sedatpolat\kalah\model\constant\ExceptionMessages.class
+tr\com\sedatpolat\kalah\controller\GameView.class
+tr\com\sedatpolat\kalah\model\bean\KalahBoard.class
+tr\com\sedatpolat\kalah\model\constant\GameStatus.class
+tr\com\sedatpolat\kalah\model\exception\InvalidOperationException.class
+tr\com\sedatpolat\kalah\MyWebAppInitializer.class
