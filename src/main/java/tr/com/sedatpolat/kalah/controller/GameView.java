@@ -83,8 +83,8 @@ public class GameView implements Serializable {
 	}
 
 	private void init() {
-		setFirstPlayer(new Player("player1"));
-		setSecondPlayer(new Player("player2"));
+		setFirstPlayer(new Player("Player1"));
+		setSecondPlayer(new Player("Player2"));
 		
 		reset();
 	}
@@ -104,9 +104,9 @@ public class GameView implements Serializable {
 		if (status ==  GameStatus.DEUCE)
 			 message = "Deuce!";
 		else if (status ==  GameStatus.PLAYER1_WIN)
-			message = "First player won!";
+			message = firstPlayer.getName() + " won!";
 		else
-			message = "Second player won!";
+			message = secondPlayer.getName() + " won!";
 		return message;
 	}
 	

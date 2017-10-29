@@ -8,7 +8,8 @@
 	<h:form>
 		<!-- <p:messages id="messages" /> -->
 		<p:growl id="messages" showDetail="true" />
-
+		<p:spacer style="width:200px;height:10px;"></p:spacer>
+		<p:outputLabel value="#{gameView.firstPlayer.name }"/>
 		<br/>
 		<p:commandButton value="#{gameView.kalah.pits[6]}" disabled="true" style="width:55px;height:70px;"></p:commandButton>
 		<p:spacer style="width:10px;"></p:spacer>
@@ -31,6 +32,9 @@
 		<p:spacer style="width:10px;"></p:spacer>
 		<p:commandButton value="#{gameView.kalah.pits[13]}" disabled="true" style="width:55px;height:70px; "></p:commandButton>
 		<br/>
+		
+		<p:spacer style="width:200px;height:10px;"></p:spacer>
+		<p:outputLabel value="#{gameView.secondPlayer.name }"/>
 		<br/>
 		<br/>
 				
