@@ -8,6 +8,11 @@ import tr.com.sedatpolat.kalah.core.service.KalahServiceImpl;
 import tr.com.sedatpolat.kalah.core.service.PlayerService;
 import tr.com.sedatpolat.kalah.core.service.PlayerServiceImpl;
 
+/**
+ * 
+ * @author sedpol
+ *
+ */
 @Configuration
 public class AppConfig {
 
