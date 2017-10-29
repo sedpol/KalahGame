@@ -8,6 +8,10 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import tr.com.sedatpolat.kalah.AppConfig;
 import tr.com.sedatpolat.kalah.core.service.KalahService;
 import tr.com.sedatpolat.kalah.core.service.PlayerService;
 import tr.com.sedatpolat.kalah.model.bean.KalahBoard;
@@ -21,15 +25,15 @@ import tr.com.sedatpolat.kalah.model.exception.InvalidOperationException;
  */
 @ManagedBean
 @SessionScoped
+//@Import(AppConfig.class)
 public class GameView implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-//	@ManagedProperty("#{checkService}")
-//	private CheckService checkService;
+	private KalahService kalahService = context.getBean(KalahService.class);
 	
-	KalahService kalahService = new KalahService();
-	PlayerService playerService = new PlayerService();
+	private PlayerService playerService = context.getBean(PlayerService.class);
 	
 	private Player firstPlayer;
 	private Player secondPlayer;
@@ -112,14 +116,6 @@ public class GameView implements Serializable {
 
 	public void setKalah(KalahBoard kalah) {
 		this.kalah = kalah;
-	}
-
-	public KalahService getKalahService() {
-		return kalahService;
-	}
-
-	public void setKalahService(KalahService kalahService) {
-		this.kalahService = kalahService;
 	}
 
 	public boolean isDisableFirstPlayer() {

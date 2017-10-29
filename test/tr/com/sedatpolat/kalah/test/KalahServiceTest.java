@@ -1,15 +1,18 @@
 package tr.com.sedatpolat.kalah.test;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import tr.com.sedatpolat.kalah.AppConfig;
 import tr.com.sedatpolat.kalah.core.service.KalahService;
+import tr.com.sedatpolat.kalah.core.service.KalahServiceImpl;
 import tr.com.sedatpolat.kalah.model.bean.KalahBoard;
 import tr.com.sedatpolat.kalah.model.constant.Constants;
 import tr.com.sedatpolat.kalah.model.exception.InvalidOperationException;
-
-import static org.junit.Assert.assertEquals;
 
 /**
  * 
@@ -18,15 +21,16 @@ import static org.junit.Assert.assertEquals;
  */
 public class KalahServiceTest {
 
-	@Autowired
-	KalahService kalahService;
+	ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+	KalahService kalahService = context.getBean(KalahService.class);
 	
 	KalahBoard kalah = null;
 	
 	@Before
 	public void setup() {
 		kalah = new KalahBoard();
-		kalahService = new KalahService();
+		kalahService = new KalahServiceImpl();
 	}
 	
 	@Test
